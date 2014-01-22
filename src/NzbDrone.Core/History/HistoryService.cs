@@ -116,6 +116,11 @@ namespace NzbDrone.Core.History
 
         public void Handle(EpisodeImportedEvent message)
         {
+            if (message.NewDownload)
+            {
+                return;
+            }
+
             foreach (var episode in message.EpisodeInfo.Episodes)
             {
                 var history = new History
