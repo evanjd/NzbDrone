@@ -32,6 +32,7 @@ namespace NzbDrone.Common.Disk
         void CopyFolder(string source, string destination);
         void MoveFolder(string source, string destination);
         void DeleteFile(string path);
+        void CopyFile(string source, string destination, bool overwrite = false);
         void MoveFile(string source, string destination);
         void DeleteFolder(string path, bool recursive);
         string ReadAllText(string filePath);
@@ -42,7 +43,6 @@ namespace NzbDrone.Common.Disk
         string GetPathRoot(string path);
         string GetParentFolder(string path);
         void SetPermissions(string filename, WellKnownSidType accountSid, FileSystemRights rights, AccessControlType controlType);
-        bool IsParent(string parentPath, string childPath);
         void SetFolderWriteTime(string path, DateTime time);
         FileAttributes GetFileAttributes(string path);
         void EmptyFolder(string path);
